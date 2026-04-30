@@ -20,9 +20,10 @@ function App() {
       <div className="timer">25:00</div>
 
       <div className="buttons">
-          <button>Start</button>
-          <button>Pause</button>
-          <button>Reset</button>
+          <button onClick={() => setIsRunning(true)}>Start</button>
+          <button onClick={() => setIsRunning(false)}>Pause</button>
+          <button onClick={() => {setIsRunning(false); setTime(1500);}}>Reset</button>
+
         </div>
       
 
