@@ -2,10 +2,15 @@ import { useState } from 'react'
 import './App.css'
 
 
+
+
 function App() {
+  const[timeLeft, settimeLeft] = useState(1500);
   return (
     
+    
     <div className="main">
+      
 
       <div className='settings'>
         <button></button>
@@ -17,7 +22,11 @@ function App() {
 
       <h1 className='title'>Pomodoro Timer</h1>
 
-      <div className="timer">25:00</div>
+      <div className="timer">
+        <span>{String(Math.floor(timeLeft / 60)).padStart(2, "0")}</span>
+        <span>:</span>
+        <span>{String(timeLeft % 60).padStart(2, "0")}</span>
+      </div>
 
       <div className="buttons">
           <button onClick={() => setIsRunning(true)}>Start</button>
