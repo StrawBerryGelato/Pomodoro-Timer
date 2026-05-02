@@ -5,9 +5,13 @@ import './App.css'
 
 
 function App() {
-  const[timeLeft, settimeLeft] = useState(1500);
+  
   const intervalRef = useRef(null);
-
+  const pomodoro = 1500;
+  const short = 300;
+  const long = 1800;
+  let input= pomodoro;
+  const[timeLeft, settimeLeft] = useState(input);
   
   function startTimer(){
  
@@ -30,7 +34,25 @@ function App() {
   function resetTimer(){
     clearInterval(intervalRef.current)
     intervalRef.current = null;
-    settimeLeft(1500)
+    settimeLeft(pomodoro)
+  }
+  
+  function shortBreak(){
+    clearInterval(intervalRef.current)
+    intervalRef.current = null;
+    settimeLeft(short);
+  }
+
+  function longBreak(){
+    clearInterval(intervalRef.current)
+    intervalRef.current = null;
+    settimeLeft(long);
+  }
+
+  function pomoTime(){
+    clearInterval(intervalRef.current)
+    intervalRef.current = null;
+    settimeLeft(pomodoro);
   }
 
   useEffect(() => {
@@ -47,15 +69,18 @@ function App() {
     <div className="main">
       
 
-      <div className='settings'>
-        <button></button>
-      </div>
-
       <video autoPlay muted loop playsInline className="background">
         <source src="/videos/rainy-room.mp4" type="video/mp4" />
       </video>
 
       <h1 className='title'>Pomodoro Timer</h1>
+
+        <div className="buttons">
+          <button onClick= {pomoTime}>Pomodoro</button>
+          <button onClick= {shortBreak}>Short Break</button>
+          <button onClick= {longBreak}>Long Break</button>
+
+        </div>
 
       <div className="timer">
         <span>{String(Math.floor(timeLeft / 60)).padStart(2, "0")}</span>

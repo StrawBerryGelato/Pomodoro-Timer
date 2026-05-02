@@ -9,6 +9,7 @@
   font-size: 6vw;
   font-family: "DynaPuff";
   color: antiquewhite;
+  margin-bottom: 10%;
 }
 
 .background{
@@ -23,7 +24,8 @@
 
 .timer {
   font-size: clamp(60px, 10vw, 140px);
-  margin-top: 30%;
+  margin-top: 10%;
+  margin-bottom:10%;
   font-weight: bold;
   color: antiquewhite;
   align-self: auto;
@@ -37,7 +39,7 @@
 
   border: none;
   border-radius: 12px;
-
+  margin: 5px;
   background: rgba(255,255,255,0.2);
   backdrop-filter: blur(10px);
 
@@ -49,5 +51,6 @@
 .buttons button:hover {
   background: rgba(255,255,255,0.35);
   transform: scale(1.05);
+  margin-right: 10px;
 }
 
