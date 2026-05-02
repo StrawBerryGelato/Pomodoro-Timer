@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import {useState,useRef,useEffect} from 'react'
 import './App.css'
 
 
@@ -6,6 +6,41 @@ import './App.css'
 
 function App() {
   const[timeLeft, settimeLeft] = useState(1500);
+  const intervalRef = useRef(null);
+
+  
+  function startTimer(){
+ 
+
+  intervalRef.current = setInterval(() => {
+      settimeLeft((prevTimeLeft) => {
+        if(prevTimeLeft<=0){
+          clearInterval(intervalRef.current)
+          intervalRef.current=null
+          return 0
+        }
+        return prevTimeLeft - 1});
+    }, 1000);
+  }
+
+  function stopTimer(){
+  clearInterval(intervalRef.current)
+  }
+
+  function resetTimer(){
+    clearInterval(intervalRef.current)
+    intervalRef.current = null;
+    settimeLeft(1500)
+  }
+
+  useEffect(() => {
+  const minutes = Math.floor(timeLeft / 60);
+  const seconds = String(timeLeft % 60).padStart(2, "0");
+
+  document.title = `${minutes}:${seconds} - Pomodoro`;
+  }, [timeLeft]);
+
+
   return (
     
     
@@ -28,10 +63,12 @@ function App() {
         <span>{String(timeLeft % 60).padStart(2, "0")}</span>
       </div>
 
+   
+
       <div className="buttons">
-          <button onClick={() => setIsRunning(true)}>Start</button>
-          <button onClick={() => setIsRunning(false)}>Pause</button>
-          <button onClick={() => {setIsRunning(false); setTime(1500);}}>Reset</button>
+          <button onClick= {startTimer}>Start</button>
+          <button onClick= {stopTimer}>Pause</button>
+          <button onClick= {resetTimer}>Reset</button>
 
         </div>
       
