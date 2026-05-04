@@ -1,6 +1,5 @@
 import {useState,useRef,useEffect} from 'react'
 import './App.css'
-import AudioPlayer from './AudioPlayer';
 
 
 
@@ -9,21 +8,16 @@ import AudioPlayer from './AudioPlayer';
 function App() {
   
   const intervalRef = useRef(null);
-  const pomodoro = 1500;  //25 minutes aka pomodoro
-  const short = 300;   // 5 minute break
-  const long = 1800;  // 30 minute break
+  const pomodoro = 1500;
+  const short = 300;
+  const long = 1800;
   let input= pomodoro;
   const[timeLeft, settimeLeft] = useState(input);
   
-
-
-  // All timer stuff
   function startTimer(){
  
-  if (intervalRef.current) return; //prevents making extra interval if user hits start again.
 
   intervalRef.current = setInterval(() => {
-    
       settimeLeft((prevTimeLeft) => {
         if(prevTimeLeft<=0){
           clearInterval(intervalRef.current)
@@ -62,25 +56,20 @@ function App() {
     settimeLeft(pomodoro);
   }
 
+  useEffect(() => {
+  const minutes = Math.floor(timeLeft / 60);
+  const seconds = String(timeLeft % 60).padStart(2, "0");
+
+  document.title = `${minutes}:${seconds} - Pomodoro`;
+  }, [timeLeft]);
 
 
-
-useEffect(() => {
-const minutes = Math.floor(timeLeft / 60);
-const seconds = String(timeLeft % 60).padStart(2, "0");
-
-document.title = `${minutes}:${seconds} - Pomodoro`;
-}, [timeLeft]);
-
-
-return (
+  return (
     
-
-  
-  // Body Design stuff
+    
     <div className="main">
       
-
+      
       <video autoPlay muted loop playsInline className="background">
         <source src="/videos/rainy-room.mp4" type="video/mp4" />
       </video>
@@ -101,15 +90,13 @@ return (
       </div>
 
    
-      
+
       <div className="buttons">
           <button onClick= {startTimer}>Start</button>
           <button onClick= {stopTimer}>Pause</button>
           <button onClick= {resetTimer}>Reset</button>
-      </div>
 
-      <AudioPlayer />
-      
+        </div>
       
 
 

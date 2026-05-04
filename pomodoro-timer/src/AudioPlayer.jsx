@@ -17,7 +17,7 @@ import { useRef } from 'react';
 
   return (
     <div>
-      <audio ref={audioRef} src="/audio/lofi1.mp3" />
+      <audio ref={audioRef} src="/audio/lofi1.mp3" controls />
 
       {/* Play Pause button Controls */}
       <button onClick={toggleAudio}>Play/Pause</button>
