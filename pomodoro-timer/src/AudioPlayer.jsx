@@ -1,35 +1,26 @@
-import { useRef } from 'react';
+  import { useRef } from 'react';
 
 
-  function AudioPlayer() {
-  const audioRef = useRef(null);
+    function AudioPlayer() {
+    const audioRef = useRef(null);
 
-  const toggleAudio = () => {
-    const audio = audioRef.current;
-    if (!audio) return;
+    const toggleAudio = () => {
+      const audio = audioRef.current;
+      if (!audio) return;
 
-    if (audio.paused) {
-      audio.play();
-    } else {
-      audio.pause();
-    }
-  };
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    };
 
-  return (
-    <div>
-      <audio ref={audioRef} src="/audio/lofi1.mp3" controls />
+    return (
+      <div>
+        <audio ref={audioRef} src="/Pomodoro-Timer/audio/lofi1.mp3" controls />
 
-      {/* Play Pause button Controls */}
-      <button onClick={toggleAudio}>Play/Pause</button>
+      </div>
+    );
+  } 
 
-      {/* Volume Controls */}
-      <input type="range" min="0" max="1" step="0.01" onChange={(e) => {
-        audioRef.current.volume = Number(e.target.value);}}/>
-      
-
-      
-    </div>
-  );
-} 
-
-export default AudioPlayer
+  export default AudioPlayer

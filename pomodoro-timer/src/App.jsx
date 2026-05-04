@@ -1,5 +1,8 @@
 import {useState,useRef,useEffect} from 'react'
 import './App.css'
+import AudioPlayer from './AudioPlayer';
+import AlarmButton from './Alarm';
+import Alarm from './Alarm';
 
 
 
@@ -16,8 +19,8 @@ function App() {
   
   function startTimer(){
  
-
-  intervalRef.current = setInterval(() => {
+  if (intervalRef.current) return; //prevents making extra interval if user hits start again.
+  intervalRef.current = setInterval(() => { 
       settimeLeft((prevTimeLeft) => {
         if(prevTimeLeft<=0){
           clearInterval(intervalRef.current)
@@ -55,6 +58,9 @@ function App() {
     intervalRef.current = null;
     settimeLeft(pomodoro);
   }
+  
+
+
 
   useEffect(() => {
   const minutes = Math.floor(timeLeft / 60);
@@ -71,7 +77,7 @@ function App() {
       
       
       <video autoPlay muted loop playsInline className="background">
-        <source src="/videos/rainy-room.mp4" type="video/mp4" />
+        <source src="/Pomodoro-Timer/videos/rainy-room.mp4" type="video/mp4" />
       </video>
 
       <h1 className='title'>Pomodoro Timer</h1>
@@ -86,7 +92,9 @@ function App() {
       <div className="timer">
         <span>{String(Math.floor(timeLeft / 60)).padStart(2, "0")}</span>
         <span>:</span>
-        <span>{String(timeLeft % 60).padStart(2, "0")}</span>
+        <span>{String(timeLeft % 60).padStart(2, "0")}  </span>
+        <span> <Alarm /> </span>
+        
       </div>
 
    
@@ -97,6 +105,8 @@ function App() {
           <button onClick= {resetTimer}>Reset</button>
 
         </div>
+
+        <AudioPlayer/>
       
 
 
