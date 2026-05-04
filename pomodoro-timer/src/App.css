@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Megrim&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
-.settings{
-  display:flex;
-  justify-content: flex-start;
-
+.main {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 .title{
   font-size: 6vw;
@@ -20,15 +20,21 @@
   height: 100%;
   object-fit: cover;
   z-index: -1;
+  overflow: hidden;
 }
 
 .timer {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   font-size: clamp(60px, 10vw, 140px);
   margin-top: 10%;
   margin-bottom:10%;
   font-weight: bold;
   color: antiquewhite;
-  align-self: auto;
+  text-align: center;
+
 }
 
 /* Play Pause Reset buttons */
@@ -58,21 +64,16 @@
 /* Alarm button stuff*/
 
 .timer button {
-  align-self: auto;
-  margin-top: 10%;
+
   padding: 12px 24px;
   font-size: 18px;
-
   border: none;
   border-radius: 12px;
-  margin: 5px;
   background: rgba(255,255,255,0.2);
   backdrop-filter: blur(10px);
-
   color: white;
   cursor: pointer;
   transition: 0.3s;
-
 }
 
 .timer button:hover{

@@ -30,13 +30,13 @@ function Alarm() {
   };
 
   return (
-    <div>
+    <>
       <audio ref={alarmRef} src="/Pomodoro-Timer/audio/alarm.mp3" loop />
       
       <button onClick={toggleAlarm}>
         {isPlaying ? 'Stop Alarm' : 'Start Alarm'}
       </button>
-    </div>
+    </>
   );
 }
 

@@ -80,7 +80,7 @@ function App() {
         <source src="/Pomodoro-Timer/videos/rainy-room.mp4" type="video/mp4" />
       </video>
 
-      <h1 className='title'>Pomodoro Timer</h1>
+      <h1 className='title'>Rainy Pomo</h1>
 
         <div className="buttons">
           <button onClick= {pomoTime}>Pomodoro</button>
@@ -92,8 +92,9 @@ function App() {
       <div className="timer">
         <span>{String(Math.floor(timeLeft / 60)).padStart(2, "0")}</span>
         <span>:</span>
-        <span>{String(timeLeft % 60).padStart(2, "0")}  </span>
-        <span> <Alarm /> </span>
+        <span>{String(timeLeft % 60).padStart(2, "0")}</span>
+        <span> <Alarm /></span>
+
         
       </div>
 
