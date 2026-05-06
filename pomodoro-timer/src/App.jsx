@@ -122,7 +122,11 @@ return (
       </video>
 
       <div className= 'rainbutton'>
-        <button onClick={rain}><img src="/Pomodoro-Timer/pictures/white-cloud.png"/></button>
+        <button onClick={rain}> <img src={rainPlaying 
+    ? "/Pomodoro-Timer/pictures/white-cloud.png" 
+    : "/Pomodoro-Timer/pictures/black-cloud.png"} 
+    alt="rain" 
+  /></button>
       </div>
 
       <h1 className='title'>Rainy Pomo</h1>
