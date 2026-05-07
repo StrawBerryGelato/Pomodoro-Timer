@@ -2,6 +2,7 @@ import {useState,useRef,useEffect} from 'react'
 import { forwardRef } from "react";
 import './App.css'
 import AudioPlayer from './AudioPlayer';
+import ToDoList from './ToDoList';
 
 
 
@@ -78,6 +79,7 @@ function App() {
     } else {
       rainRef.current.currentTime = 0;
       rainRef.current.volume = 0.5;
+      rainRef.current.loop = true;
       rainRef.current.play();
       setRainPlaying(true);
     }
@@ -158,6 +160,7 @@ return (
         </div>
 
         <AudioPlayer/>
+        <ToDoList/>
 
       <audio ref={alarmRef} src="/Pomodoro-Timer/audio/alarm.mp3" />
       <audio ref={rainRef} src="/Pomodoro-Timer/audio/rain.mp3" />
