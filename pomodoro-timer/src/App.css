@@ -73,8 +73,8 @@
 
 /* I adjusted it for mobile devices but tablets wider resolution messed it up still need to adjust that*/
 .rainbutton button img {
-  width: 10vw;
-  height: 20vw;
+  width: 20vw;
+  height: 15vw;
   min-width: 80px;  
   max-width: 200px;  
 }
