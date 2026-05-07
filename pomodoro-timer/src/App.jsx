@@ -122,13 +122,13 @@ return (
       <video autoPlay muted loop playsInline className="background">
         <source src="/Pomodoro-Timer/videos/rainy-room.mp4" type="video/mp4" />
       </video>
-
+      
       <div className= 'rainbutton'>
         <button onClick={rain}> <img src={rainPlaying 
-    ? "/Pomodoro-Timer/pictures/white-cloud.png" 
-    : "/Pomodoro-Timer/pictures/black-cloud.png"} 
-    alt="rain" 
-  /></button>
+          ? "/Pomodoro-Timer/pictures/white-cloud.png" 
+          : "/Pomodoro-Timer/pictures/black-cloud.png"} 
+          alt="rain" 
+        /></button>
       </div>
 
       <h1 className='title'>Rainy Pomo</h1>
@@ -158,7 +158,8 @@ return (
           <button onClick= {resetTimer}>Reset</button>
 
         </div>
-
+        
+        {/* Simple html5 audio player might replace later*/}
         <AudioPlayer/>
         <ToDoList/>
 

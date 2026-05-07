@@ -38,7 +38,7 @@
 
 }
 
-/* Play Pause Reset buttons */
+/* Play Pause Reset buttons  !!!also now the to-do list */
 .buttons button {
   align-self: auto;
   margin-top: 10%;
@@ -71,9 +71,12 @@
   left:5%;
 }
 
+/* I adjusted it for mobile devices but tablets wider resolution messed it up still need to adjust that*/
 .rainbutton button img {
-  width: 200px;  /* adjust to whatever size you want */
-  height: 200px;
+  width: 10vw;
+  height: 20vw;
+  min-width: 80px;  
+  max-width: 200px;  
 }
 
 /* Alarm button stuff*/
